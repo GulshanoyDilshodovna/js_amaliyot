@@ -18,14 +18,18 @@ form.addEventListener('submit', submitForm)
 // get results function
 const getResults = (query)=>{
     let url = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&origin=*&srlimit=25&utf8&format=json&srsearch=${query}`
-    fetch(url)
-        .then((res)=>res.json())
-        .then((data)=>{
-            addResults(data.query.search)
-        })
-        .catch((e)=>{
-            console.log(`Error: ${e}`);
-        })
+    try{
+        const req = await fetch(url)
+        const json = await req.json()
+        if(!json.query.search.length){
+            throw new Error(
+                `Kiritilgan so'rov bo'yicha hech qanday ma'lumot topilmadi, iltimos tekshirib qaytadan kiriting!!!`
+            )
+        }
+        addResults(json.query.search)
+    }catch(e){
+        searchResults.textContent = e.message
+    }
 }
 
 //
