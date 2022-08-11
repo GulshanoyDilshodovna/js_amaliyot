@@ -1,4 +1,5 @@
-let urlApi = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&origin=*&srlimit=25&utf8&format=json&srsearch`
+//============= WIKIPEDIA============//
+/*let urlApi = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&origin=*&srlimit=25&utf8&format=json&srsearch`
 const form = document.getElementById('search-form')
 const searchInput = document.getElementById('search-input')
 const button = document.getElementById('search-button')
@@ -50,3 +51,114 @@ const addResults = (results) => {
     )
   })
 }
+*/
+
+
+
+
+
+//=======TEZ YOZ O'TINI || TYPING=========//
+
+//ELEMENTS
+const word = document.getElementById('word')
+const text = document.getElementById('input-area')
+const timeEl = document.getElementById('time')
+const scoreEl = document.getElementById('score')
+const endGameEl = document.getElementById('end-game')
+
+const words = [
+  'npm',
+  'html',
+  'javascript',
+  'style',
+  'body',
+  'meta',
+  'charset',
+  'developer',
+  'code',
+  'time',
+  'text-decoration',
+  'tag',
+  'empty teg',
+  'elemnt',
+  'scope',
+  'loop',
+  'console',
+  'document',
+  'create',
+  'read',
+  'update',
+  'delete',
+  'ID',
+  'class',
+  'placeholder',
+  'input',
+  'type',
+  'submit',
+  'transform',
+  'trnsition',
+  'animation',
+  'game',
+  'hacker',
+  'dark-net'
+]
+
+let randomWord;
+let score = 0;
+let time = 60;
+
+//GET RANDOM WORD FUNCTION
+function getRandomWord(){
+  words[Math.floor(Math.random()*words.length)]
+}
+console.log(getRandomWord());
+
+//ADD TO WORD
+function addWord(){
+  randomWord = getRandomWord()
+  word.innerHTML = randomWord
+}
+
+//UPDATE SCORE FUNCTION
+function updateScore(){
+  score++
+  scoreEl.innerHTML = score
+}
+
+//UPDATE TIME FUNCTION
+function updateTime(){
+  time--
+  timeEl.innerHTML = time + 's'
+  if(time<=0){
+    clearInterval(timeInterval)
+    gameOver()
+  }
+}
+
+// SET TIME INTERVAL
+const timeInterval = setInterval(updateTime, 1000)
+
+//GAME OVER FUNCTION
+function gameOver(){
+  endGameEl.innerHTML = `
+    <h2>Vaqt tugadi</h2>
+    <p>Ball: ${score}</p>
+    <button type='submit' onclick='location.reload()' >Yngilash</button>
+  `
+}
+
+//INPUT EVENT
+text.addEventListener('input', (e)=>{
+  let typedText = e.target.value
+
+  if(typedText == randomWord){
+    updateScore();
+    addWord();
+    e.target.value = '';
+    updateTime();
+  }
+
+})
+
+addWord()
+
