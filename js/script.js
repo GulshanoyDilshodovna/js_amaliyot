@@ -189,10 +189,11 @@ const getUser = async (username)=>{
   const res = await fetch(API + username)
   const json = await res.json() 
   createUser(json)
-  console.log(json);
 }
 
-getUser('Dan')
+if(!searchInput.value == ''){
+  getUser()
+}
 
 //FORMM EVENT
 form.addEventListener('submit', (e)=>{
@@ -215,15 +216,15 @@ const createUser = (user)=>{
           <p class="bio">${user.bio}</p>
           <ul class="info">
               <ul class="followers">
-                  <li><strong>Followers: </strong>${user.followers}</li>
-                  <li><strong>Following: </strong>${user.following}</li>
-                  <li><strong>Repos: </strong>${user.public_repos}</li>
+                  <li><strong>Followers: </strong>${user.followers?user.followers:'0'}</li>
+                  <li><strong>Following: </strong>${user.following?user.following:'0'}</li>
+                  <li><strong>Repos: </strong>${user.public_repos?user.public_repos:'0'}</li>
               </ul>
               <ul class="user-links">
-                  <li> <i class="fa-brands fa-twitter"></i> ${user.twitter_username}</li>
-                  <li> <i class="fa-solid fa-location-dot"></i> ${user.location}</li>
-                  <li> <i class="fa-solid fa-link"></i> <a href=' ${user.blog}'> ${user.blog}</a></li>
-                  <li> <i class="fa-solid fa-building"></i> ${user.company}</li>
+                  <li> <i class="fa-brands fa-twitter"></i> ${user.twitter_username?user.twitter_username:'not twitter user'}</li>
+                  <li> <i class="fa-solid fa-location-dot"></i> ${user.location?user.location:'no location'}</li>
+                  <li> <i class="fa-solid fa-link"></i> <a href=' ${user.blog}'> ${user.blog?user.blog:'no blog'}</a></li>
+                  <li> <i class="fa-solid fa-building"></i> ${user.company?user.company:'no company'}</li>
               </ul>
           </ul>
         </div>
