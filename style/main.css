@@ -82,7 +82,7 @@ body{
     background-color: rgb(201, 248, 245);
 
 }
-.container {
+.container, .end-game {
     font-family: 'Poppins', sans-serif;
     background-color: rgb(157, 246, 216);
     padding: 1rem 1.5rem;
@@ -92,6 +92,8 @@ body{
     align-items: center;
     justify-content: center;
     color: rgb(43, 166, 215);
+    width: 280px;
+    height: 160px;
 }
 .word {
     color: rgb(43, 166, 215);
@@ -114,6 +116,12 @@ body{
     margin: 6px 12px;
 }
 .end-game {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
     text-align: center;
 }
 .end-game h3 {

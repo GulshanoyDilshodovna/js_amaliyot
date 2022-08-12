@@ -96,7 +96,7 @@ const words = [
   'type',
   'submit',
   'transform',
-  'trnsition',
+  'transition',
   'animation',
   'game',
   'hacker',
@@ -135,7 +135,7 @@ function updateScore(){
 //UPDATE TIME FUNCTION
 function updateTime(){
   time--
-  timeEl.innerHTML = time + 's'
+  timeEl.innerHTML ='time: ' +  time + 's'
 
   if(time<=0){
     clearInterval(timeInterval)
@@ -154,6 +154,7 @@ function gameOver(){
     <p>Ball: ${score}</p>
     <button type='submit' onclick='location.reload()' >Yangilash</button>
     `
+    endGameEl.style.display = 'block'
 }
 
 //INPUT EVENT
