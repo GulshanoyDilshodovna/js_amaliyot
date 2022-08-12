@@ -58,7 +58,7 @@ const addResults = (results) => {
 
 
 //=======TEZ YOZ O'TINI || TYPING=========//
-
+/*
 //ELEMENTS
 const word = document.getElementById('word')
 const text = document.getElementById('input-area')
@@ -169,6 +169,65 @@ text.addEventListener('input', (e)=>{
   }
 
 })
-
 addWord()
+*/
 
+
+
+
+//==========GITHUB QIDIRUV TIZIMI==========//
+
+//ELEMENTS
+
+const API = 'https://api.github.com/users/'
+const results = document.getElementById('results')
+const form = document.getElementById('form')
+const searchInput = document.getElementById('search-input')
+
+//GET USER FUNCTION
+const getUser = async (username)=>{
+  const res = await fetch(API + username)
+  const json = await res.json() 
+  createUser(json)
+  console.log(json);
+}
+
+getUser('Dan')
+
+//FORMM EVENT
+form.addEventListener('submit', (e)=>{
+  e.preventDefault()
+  const user = searchInput.value
+  if(user){
+    getUser(user)
+    searchInput.value = ''
+  }
+})
+
+//CREATE USER CARD
+const createUser = (user)=>{
+  const cardHTML = `
+    <div class="card">
+      <img class="user-img" src="${user.avatar_url}" alt="${user.name} image">
+        <div class="user-info">
+          <h2 class="name">${user.name}</h2>
+          <h3 class="login"> <i class="fa-solid fa-globe"></i> ${user.login}</h3>
+          <p class="bio">${user.bio}</p>
+          <ul class="info">
+              <ul class="followers">
+                  <li><strong>Followers: </strong>${user.followers}</li>
+                  <li><strong>Following: </strong>${user.following}</li>
+                  <li><strong>Repos: </strong>${user.public_repos}</li>
+              </ul>
+              <ul class="user-links">
+                  <li> <i class="fa-brands fa-twitter"></i> ${user.twitter_username}</li>
+                  <li> <i class="fa-solid fa-location-dot"></i> ${user.location}</li>
+                  <li> <i class="fa-solid fa-link"></i> <a href=' ${user.blog}'> ${user.blog}</a></li>
+                  <li> <i class="fa-solid fa-building"></i> ${user.company}</li>
+              </ul>
+          </ul>
+        </div>
+    </div>
+  `
+  results.innerHTML = cardHTML
+}

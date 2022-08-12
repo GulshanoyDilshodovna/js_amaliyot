@@ -72,7 +72,7 @@ main{
 
 
 /*=======TEZ YOZ O'TINI || TYPING=========*/
-body{
+/* body{
     min-height: 100vh;
     overflow: hidden;
     display: flex;
@@ -139,4 +139,115 @@ body{
 }
 .end-game > button:hover{
     cursor: pointer;
+} */
+
+
+
+
+
+/*==========GITHUB QIDIRUV TIZIMI==========*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;800;900&display=swap');
+
+:root{
+    --white: #d9dbdd;
+    --dark: #24292f;
+    --blue: #3f3ff7;
+    --darkgrey: #49535b;
+    --lightgrey:#AAB8C2;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--dark);
+    color: var(--white);
+}
+.main {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+    max-width: 800px;
+    width: 100%;
+}
+.form {
+    background-color: var(--darkgrey);
+    display: flex;
+    margin: 1rem;
+    padding: 8px 14px;
+    border-radius: 0.5rem;
+}
+.search-input {
+    margin-right: 10px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: var(--lightgrey);
+    flex-grow: 1;
+}
+.search-button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--blue);
+    color: var(--white);
+    transition:  0.3s;
+}
+.search-button:hover{
+    cursor: pointer;
+    opacity: 0.8;
+    transform: scale(1.02);
+}
+.card {
+    line-height: 1.2;
+    display: flex;
+    background-color: var(--darkgrey);
+    color: var(--white);
+    padding: 1rem;
+    border-radius: .5rem;
+}
+.user-img {
+    border-radius: 50%;
+    width: 220px;
+    height: 220px;
+    margin-right: 1rem;
+}
+.card ul{
+    list-style: none;
+}
+.name {
+    color: #fff;
+}
+.login {
+    color: var(--blue);
+}
+.followers {
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.4);
+    border-radius: .5rem;
+    padding: .5rem; 
+    font-size: 14px;
+    display: flex;
+    justify-content: space-around;
+    margin: 6px 0;
+}
+.user-links {
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.4);
+    border-radius: .5rem;
+    padding: .5rem; 
+    font-size: 14px;
+}
+.user-links a{
+    text-decoration: none;
+    color: var(--white);
+}
+.user-links a:hover{
+    color: var(--blue);
+}
+ul li{
+    margin: 6px;
+}
+.user-links>li>i{
+    color: var(--blue);
 }
