@@ -163,6 +163,7 @@ body {
     color: var(--white);
 }
 .main {
+    margin: 0 auto;
     display: flex;
     height: 100vh;
     align-items: center;
@@ -170,9 +171,9 @@ body {
     flex-direction: column;
     padding: 1rem;
     max-width: 800px;
-    width: 100%;
 }
 .form {
+    width: 100%;
     background-color: var(--darkgrey);
     display: flex;
     margin: 1rem;
@@ -180,7 +181,6 @@ body {
     border-radius: 0.5rem;
 }
 .search-input {
-    margin-right: 10px;
     outline: none;
     border: none;
     background-color: transparent;
@@ -200,9 +200,13 @@ body {
     opacity: 0.8;
     transform: scale(1.02);
 }
+.results{
+    width: 100%;
+}
 .card {
     line-height: 1.2;
     display: flex;
+    justify-content: space-evenly;
     background-color: var(--darkgrey);
     color: var(--white);
     padding: 1rem;
@@ -231,6 +235,7 @@ body {
     display: flex;
     justify-content: space-around;
     margin: 6px 0;
+    flex-wrap: wrap;
 }
 .user-links {
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.4);
@@ -241,6 +246,8 @@ body {
 .user-links a{
     text-decoration: none;
     color: var(--white);
+    transition: color 0.3s;
+    margin: 0.5rem  0;
 }
 .user-links a:hover{
     color: var(--blue);
@@ -250,4 +257,23 @@ ul li{
 }
 .user-links>li>i{
     color: var(--blue);
+}
+/*MEDIA QUERY*/
+@media (max-width: 500px){
+    .card{
+        flex-direction: column;
+    }
+    .user-img{
+        margin: auto;
+    }
+} 
+@media (max-width: 330px){
+    .form{
+        width: 300px;
+    }
+}
+@media (max-width: 280px){
+    .form{
+        width: 280px;
+    }
 }
