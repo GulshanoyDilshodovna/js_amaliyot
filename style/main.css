@@ -72,19 +72,63 @@ main{
 
 
 /*=======TEZ YOZ O'TINI || TYPING=========*/
+body{
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(201, 248, 245);
+
+}
 .container {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(157, 246, 216);
+    padding: 1rem 1.5rem;
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(43, 166, 215);
 }
 .word {
+    color: rgb(43, 166, 215);
+    padding: 6px 10px;
+    letter-spacing: 2px;
+
 }
-.input-area {
+.input-area{
+    border: 1px solid rgb(43, 166, 215);
+    outline: none;
+    border-radius: .5rem;
+    padding: 6px 12px;
+    color: rgb(43, 166, 215);
+    font-size: 1rem;
+}
+.input-area::placeholder{
+    color: rgb(43, 166, 215);
 }
 .time-section {
-}
-.time {
-}
-.score-section {
-}
-.score {
+    margin: 6px 12px;
 }
 .end-game {
+    text-align: center;
+}
+.end-game h3 {
+    color: rgb(247, 98, 43);
+    margin: 6px;
+}
+.end-game>button{
+    margin: 6px;
+    border: 1px solid rgb(43, 166, 215);
+    border-radius: .5rem;
+    padding: 6px 12px;
+    color: rgb(43, 166, 215);
+    font-size: 1rem;
+
+}
+.end-game > button:hover{
+    cursor: pointer;
 }

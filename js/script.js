@@ -79,8 +79,8 @@ const words = [
   'time',
   'text-decoration',
   'tag',
-  'empty teg',
-  'elemnt',
+  'empty tag',
+  'element',
   'scope',
   'loop',
   'console',
@@ -100,7 +100,15 @@ const words = [
   'animation',
   'game',
   'hacker',
-  'dark-net'
+  'dark-net',
+  'display',
+  'position',
+  'height',
+  'width',
+  'overflow',
+  'container',
+  'wrapper',
+  'main',
 ]
 
 let randomWord;
@@ -109,14 +117,13 @@ let time = 60;
 
 //GET RANDOM WORD FUNCTION
 function getRandomWord(){
-  words[Math.floor(Math.random()*words.length)]
+  return words[Math.floor(Math.random()*words.length)]
 }
-console.log(getRandomWord());
 
 //ADD TO WORD
 function addWord(){
   randomWord = getRandomWord()
-  word.innerHTML = randomWord
+  word.innerHTML = randomWord;
 }
 
 //UPDATE SCORE FUNCTION
@@ -129,6 +136,7 @@ function updateScore(){
 function updateTime(){
   time--
   timeEl.innerHTML = time + 's'
+
   if(time<=0){
     clearInterval(timeInterval)
     gameOver()
@@ -140,18 +148,19 @@ const timeInterval = setInterval(updateTime, 1000)
 
 //GAME OVER FUNCTION
 function gameOver(){
+  text.disabled = true;
   endGameEl.innerHTML = `
-    <h2>Vaqt tugadi</h2>
+    <h3>Vaqt tugadi</h3>
     <p>Ball: ${score}</p>
-    <button type='submit' onclick='location.reload()' >Yngilash</button>
-  `
+    <button type='submit' onclick='location.reload()' >Yangilash</button>
+    `
 }
 
 //INPUT EVENT
 text.addEventListener('input', (e)=>{
   let typedText = e.target.value
 
-  if(typedText == randomWord){
+  if(typedText === randomWord){
     updateScore();
     addWord();
     e.target.value = '';
