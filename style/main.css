@@ -148,7 +148,7 @@ main{
 /*==========GITHUB QIDIRUV TIZIMI==========*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;800;900&display=swap');
-
+/* 
 :root{
     --white: #d9dbdd;
     --dark: #24292f;
@@ -258,7 +258,7 @@ ul li{
 .user-links>li>i{
     color: var(--blue);
 }
-/*MEDIA QUERY*/
+
 @media (max-width: 500px){
     .card{
         flex-direction: column;
@@ -275,5 +275,124 @@ ul li{
 @media (max-width: 280px){
     .form{
         width: 280px;
+    }
+} */
+
+
+
+
+
+
+/*========= IMAGES FINDER|| RASMLAR  QIDIRUVI =========*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;800;900&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: rgb(226, 255, 245);
+}
+.wrapper{
+   padding: 10px; 
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+.navbar-brand {
+    width: 100px;
+    border-radius: .25rem ;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+form {
+    display: flex;
+    margin: 12px 0;
+}
+.input {
+    background-color: #fff;
+    padding: 10px 16px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    letter-spacing: 1px;
+    border-radius: 0.5rem;
+}
+.input::placeholder{
+    color: #000;
+}
+.search-button {
+    margin-left: 1rem;
+    background-color: aquamarine;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    font-size: 18px;
+    letter-spacing: 1px;
+    border-radius: 0.5rem;
+    transition: 0.3s;
+}
+.search-button:hover{
+    background-color: #fff;
+    color: aquamarine;
+    opacity: 0.6;
+    cursor: pointer;
+}
+.alert {
+    color: orangered;
+    font-size: 18px;
+    margin: 10px 0;
+    text-align: center;
+}
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.image{
+    width: 300px;
+    height: 300px;
+}
+.caption{
+    font-size: 14px;
+    color: #888;
+    font-family: 'Montserrat', monospace;
+    margin: 10px;
+    text-align: center;
+}
+@media (max-width: 500px){
+    .navbar{
+        margin: 12px;
+    }
+    .input, .search-button{
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    .navbar-brand {
+        width: 80px;
+    }
+    .alert {
+        color: orangered;
+        font-size: 14px;
+    } 
+}
+@media (max-width: 400px){
+    .navbar{
+        margin: 8px;
+    }
+    .input, .search-button{
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+    .navbar-brand {
+        width: 60px;
+    } 
+}
+@media (max-width: 300px){
+    .image{
+        width: 275px;
+        height: 275px;
     }
 }

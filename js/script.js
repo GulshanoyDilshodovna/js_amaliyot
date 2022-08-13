@@ -176,13 +176,15 @@ addWord()
 
 
 //==========GITHUB QIDIRUV TIZIMI==========//
-
+/*
 //ELEMENTS
 
 const API = 'https://api.github.com/users/'
 const results = document.getElementById('results')
 const form = document.getElementById('form')
 const searchInput = document.getElementById('search-input')
+
+searchInput.focus()
 
 //GET USER FUNCTION
 const getUser = async (username)=>{
@@ -231,4 +233,85 @@ const createUser = (user)=>{
     </div>
   `
   results.innerHTML = cardHTML
+}
+*/
+
+
+
+
+
+/*========= IMAGES FINDER|| RASMLAR  QIDIRUVI =========*/
+
+//ELEMENTS
+const pexelsAPI = '563492ad6f91700001000001405db7ee5e024c8b92ec5b3f44b62776'
+const input = document.getElementById('input')
+const searchButton = document.getElementById('search-button')
+let searchText = ''
+let search = false
+let setTime
+
+input.focus()
+
+//GET DEFAULT PHOTOS
+async function defaultPhotos(){
+  const data = await fetch(`https://api.pexels.com/v1/curated`, {
+    method: 'GET',
+    headers:{
+      Accept: 'application/json',
+      Authorization: pexelsAPI,
+    }
+  })
+  const res = await data.json()
+  displayImage(res)
+}
+
+//DISPLAY PHOTOS FUNCTION
+function displayImage(res){
+  res.photos.forEach(image => {
+    const photo = document.createElement('div')
+    photo.innerHTML = `
+      <a href='${image.src.large}' target='_blank'>
+        <img class='image' src='${image.src.large}' alt ='${image.url}' >
+      </a>
+      <figcaption class='caption'>📷 ${image.photographer}</figcaption>
+    `
+    document.querySelector('.images').appendChild(photo)
+  });
+}
+
+defaultPhotos()
+
+//SEARCH IMAGES FUNCTION
+async function searchPhoto(query){
+  const data = await fetch(`https://api.pexels.com/v1/search?query=${query}`, {
+    method: 'GET',
+    headers:{
+      Accept: 'application/json',
+      Authorization: pexelsAPI,
+    }
+  })
+  const res = await data.json()
+  displayImage(res)
+}
+
+input.addEventListener('input', (e)=>{
+  e.preventDefault()
+  searchText = e.target.value
+})
+
+searchButton.addEventListener('click', ()=>{
+  if(input.value === ''){
+  document.querySelector('.alert').innerHTML = 'Empty search, please enter something...'
+  }else{
+    document.querySelector('.alert').innerHTML = ''
+    input.value = ''
+    clear()
+    search=true
+    searchPhoto(searchText)
+
+  }
+})
+// DEFAULT IMAGES CLEAR
+function clear(){
+  document.querySelector('.images').innerHTML = ''
 }
